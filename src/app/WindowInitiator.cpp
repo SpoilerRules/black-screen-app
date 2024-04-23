@@ -39,7 +39,13 @@ void WindowInitiator::createWindow() {
     while (GetMessage(&message, nullptr, 0, 0)) {
         TranslateMessage(&message);
         DispatchMessage(&message);
+
+        if (message.message == WM_QUIT) {
+            break;
+        }
     }
+
+    UnregisterClass("BlackWindowClass", GetModuleHandle(nullptr));
 }
 
 LRESULT CALLBACK HandleWindowMessages(const HWND windowHandle, const UINT messageType, const WPARAM windowParameterValue, const LPARAM messageData) { // NOLINT(*-misplaced-const)
