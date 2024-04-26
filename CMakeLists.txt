@@ -9,7 +9,6 @@ if(NOT CMAKE_GENERATOR_PLATFORM)
 endif()
 
 if (MSVC)
-    message("test")
     set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} /O3 /Ob2 /Oi /Ot /Oy /GL /GS-")
     set(CMAKE_EXE_LINKER_FLAGS_RELEASE "${CMAKE_EXE_LINKER_FLAGS_RELEASE} /LTCG")
 endif()
@@ -21,8 +20,8 @@ set(SOURCES
 )
 
 if(CMAKE_GENERATOR_PLATFORM STREQUAL "Win32") # Windows x86
-add_executable(black_screen_app_x86 WIN32 ${SOURCES})
-set_target_properties(black_screen_app_x86 PROPERTIES OUTPUT_NAME "black-screen-app_x86$<$<CONFIG:Debug>:-debug>")
+    add_executable(black_screen_app_x86 WIN32 ${SOURCES})
+    set_target_properties(black_screen_app_x86 PROPERTIES OUTPUT_NAME "black-screen-app_x86$<$<CONFIG:Debug>:-debug>")
 elseif(CMAKE_GENERATOR_PLATFORM STREQUAL "x64")
     add_executable(black_screen_app_x64 ${SOURCES})
     set_target_properties(black_screen_app_x64 PROPERTIES OUTPUT_NAME "black-screen-app_x64$<$<CONFIG:Debug>:-debug>")
