@@ -5,7 +5,7 @@ set(CMAKE_CXX_STANDARD 23)
 
 # defaults to x86 (Win32) if platform is not specified
 if(NOT CMAKE_GENERATOR_PLATFORM)
-    set(CMAKE_GENERATOR_PLATFORM "x86")
+    set(CMAKE_GENERATOR_PLATFORM "Win32")
 endif()
 
 if (MSVC)
