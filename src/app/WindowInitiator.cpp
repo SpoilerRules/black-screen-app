@@ -3,7 +3,6 @@
 //
 
 #include "WindowInitiator.hpp"
-#include <windows.h>
 
 LRESULT CALLBACK HandleWindowMessages(HWND windowHandle, UINT messageType, WPARAM windowParameterValue, LPARAM messageData);
 
