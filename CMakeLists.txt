@@ -17,6 +17,8 @@ set(SOURCES
         src/app/main.cpp
         src/app/WindowInitiator.cpp
         src/app/WindowInitiator.hpp
+        src/app/ColorHandler.cpp
+        src/app/ColorHandler.hpp
 )
 
 if(CMAKE_GENERATOR_PLATFORM STREQUAL "Win32") # Windows x86
