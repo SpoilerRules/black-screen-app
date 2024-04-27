@@ -22,11 +22,12 @@ set(SOURCES
 )
 
 if(CMAKE_GENERATOR_PLATFORM STREQUAL "Win32") # Windows x86
-    add_executable(black_screen_app_x86 WIN32 ${SOURCES})
-    set_target_properties(black_screen_app_x86 PROPERTIES OUTPUT_NAME "black-screen-app_x86$<$<CONFIG:Debug>:-debug>")
+    set(EXECUTABLE_NAME "black_screen_app_x86")
 elseif(CMAKE_GENERATOR_PLATFORM STREQUAL "x64")
-    add_executable(black_screen_app_x64 ${SOURCES})
-    set_target_properties(black_screen_app_x64 PROPERTIES OUTPUT_NAME "black-screen-app_x64$<$<CONFIG:Debug>:-debug>")
+    set(EXECUTABLE_NAME "black_screen_app_x64")
 else()
     message(FATAL_ERROR "Unsupported platform: ${CMAKE_GENERATOR_PLATFORM}. Supported platforms are x86 and x64.")
 endif()
+
+add_executable(${EXECUTABLE_NAME} WIN32 ${SOURCES})
+set_target_properties(${EXECUTABLE_NAME} PROPERTIES OUTPUT_NAME "${EXECUTABLE_NAME}$<$<CONFIG:Debug>:-debug>")
